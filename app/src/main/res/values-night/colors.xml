@@ -10,6 +10,7 @@
     <color name="transparent">#0000ffff</color>
     <color name="text_color">#fff</color>
     <color name="colorOnPrimary">#000000</color>
-
+    <color name="editText_background">#3A3B3C</color>
+    <color name="main_bg">#3A3B3C</color>
 
 </resources>

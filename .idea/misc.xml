@@ -3,15 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/edittext_background.xml" value="0.3640625" />
         <entry key="app/src/main/res/drawable/gradient_bg.xml" value="0.3640625" />
         <entry key="app/src/main/res/drawable/main_background.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/main_bg.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w01d.xml" value="0.5" />
+        <entry key="app/src/main/res/drawable/w01n.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w02d.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w02n.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w03d.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w03n.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w04d.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w09d.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w11d.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w11n.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w13d.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w13n.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w50d.xml" value="0.3640625" />
+        <entry key="app/src/main/res/drawable/w50n.xml" value="0.3640625" />
+        <entry key="app/src/main/res/layout/activity_about.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_list.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/layout/activity_search_add.xml" value="0.34791666666666665" />
+        <entry key="app/src/main/res/layout/activity_settings.xml" value="0.3029891304347826" />
         <entry key="app/src/main/res/layout/search_result_item.xml" value="0.34791666666666665" />
+        <entry key="app/src/main/res/layout/settings_activity.xml" value="0.2957427536231884" />
+        <entry key="app/src/main/res/menu/options_menu.xml" value="0.34791666666666665" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.275" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.275" />
+        <entry key="app/src/main/res/xml/prefs.xml" value="0.2957427536231884" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.2957427536231884" />
       </map>
     </option>
   </component>

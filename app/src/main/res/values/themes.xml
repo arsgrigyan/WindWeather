@@ -11,17 +11,21 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <!-- Customize your theme here. -->
-        <item name="android:textColor">@color/text_color</item>
+        <!--<item name="android:textColor">@color/text_color</item>-->
         <item name="android:statusBarColor" tools:targetApi="l">@color/transparent</item>
-
-
-
+        <!-- <item name="android:itemTextAppearance">@style/PopupTheme</item> -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
 
     </style>
-    <style name="Theme.WindWeather.fullScreen">
+
+    <style name="Theme.WindWeather.mainActivity">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:textColor">#fff</item>
     </style>
+
+   <!-- <style name="PopupTheme" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/black</item>
+    </style> -->
+
 
 </resources>

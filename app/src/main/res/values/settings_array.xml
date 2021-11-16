@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="items_name_temperature">
+        <item>Celsius - °C</item>
+        <item>Fahrenheit - °F</item>
+    </string-array>
+    <string-array name="item_values_temperature">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="items_name_pressure">
+        <item>Hectopascals - hPa</item>
+        <item>Millimeters of mercury - mmHg</item>
+        <item>Inches of mercury - inHg</item>
+    </string-array>
+    <string-array name="item_values_pressure">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="items_name_wind">
+        <item>Meters per second - m/s</item>
+        <item>Miles per hour - mph</item>
+    </string-array>
+    <string-array name="item_values_wind">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+
+
+
+
+</resources>

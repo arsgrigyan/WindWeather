@@ -1,39 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/list_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        />
 
-    <ListView
-        android:id="@+id/location_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.DayNight"
-        android:divider="@drawable/gradient_bg"
-        />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/list_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+        <ListView
+            android:id="@+id/location_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/gradient_bg"
+            android:theme="@style/ThemeOverlay.AppCompat.DayNight" />
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_search"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:backgroundTint="#9A6FD0"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="38dp"
-        android:src="@drawable/ic_search"
-        />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right">
 
+        <EditText
+            android:id="@+id/addCity_editText"
+            android:layout_width="240dp"
+            android:layout_height="58dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="38dp"
+            android:background="@drawable/edittext_background"
+            android:gravity="start|center"
+            android:hint="Input the city name"
+            android:paddingStart="15dp"
+            android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="38dp"
+            android:backgroundTint="#F55064A9"
+            android:src="@drawable/ic_add"
+            app:borderWidth="0dp" />
+    </FrameLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

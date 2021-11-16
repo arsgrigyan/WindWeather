@@ -2,84 +2,79 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_bg"
+    android:background="@drawable/b01d"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Light"
     tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight">
+
+        <ImageButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transparent"
+            android:padding="5dp"
+            android:src="@drawable/ic_filter_list" />
+
+
+        <LinearLayout
+            android:id="@+id/addressContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Location"
+                android:textColor="@color/white"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/updated_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Updated at"
+                android:textColor="@color/white"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:id="@+id/mainContainer"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="25dp"
         android:visibility="visible">
 
-        <ImageButton
-            android:id="@+id/btn_add"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/transparent"
-            android:src="@drawable/ic_filter_list"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+        <ImageView
+            android:id="@+id/weatherIcon"
+            android:layout_width="145dp"
+            android:layout_height="145dp"
             android:layout_centerHorizontal="true"
-            >
-
-            <!-- <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <SearchView
-                    android:id="@+id/search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:queryHint="City, Country"
-                    android:textAlignment="center"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-
-                   />
-
-                <ListView
-                    android:id="@+id/search_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:visibility="gone" />
-
-
-            </LinearLayout>
-        !-->
-
-            <LinearLayout
-                android:id="@+id/addressContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Location"
-                    android:textSize="26sp" />
-
-                <TextView
-                    android:id="@+id/updated_at"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Updated at"
-                    android:textSize="13sp" />
-            </LinearLayout>
-        </LinearLayout>
+            android:layout_gravity="center"
+            android:layout_marginTop="90dp"
+            android:scaleType="fitXY" />
 
         <LinearLayout
             android:id="@+id/overviewContainer"
@@ -94,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Clear Sky"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
@@ -103,6 +99,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="sans-serif-thin"
                 android:text="24°C"
+                android:textColor="@color/white"
                 android:textSize="100sp" />
 
             <LinearLayout
@@ -115,7 +112,8 @@
                     android:id="@+id/temperature_min"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="min" />
+                    android:text="min"
+                    android:textColor="@color/white" />
 
                 <Space
                     android:layout_width="50dp"
@@ -125,7 +123,8 @@
                     android:id="@+id/temperature_max"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="max" />
+                    android:text="max"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -148,7 +147,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="#36000000"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -163,6 +162,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Humidity"
+                        android:textColor="@color/white"
                         android:textSize="12dp" />
 
                     <TextView
@@ -170,6 +170,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="45%"
+                        android:textColor="@color/white"
                         android:textSize="14dp" />
 
                 </LinearLayout>
@@ -182,7 +183,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="#36000000"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -197,6 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pressure"
+                        android:textColor="@color/white"
                         android:textSize="12dp" />
 
                     <TextView
@@ -204,6 +206,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1250 Pa"
+                        android:textColor="@color/white"
                         android:textSize="14dp" />
 
                 </LinearLayout>
@@ -216,7 +219,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="#36000000"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -231,6 +234,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Wind"
+                        android:textColor="@color/white"
                         android:textSize="12dp" />
 
                     <TextView
@@ -238,6 +242,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="35 m/h"
+                        android:textColor="@color/white"
                         android:textSize="14dp" />
 
                 </LinearLayout>
@@ -260,7 +265,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="#36000000"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -275,6 +280,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sunrise"
+                        android:textColor="@color/white"
                         android:textSize="12dp" />
 
                     <TextView
@@ -282,6 +288,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5:30 AM"
+                        android:textColor="@color/white"
                         android:textSize="14dp" />
 
                 </LinearLayout>
@@ -294,7 +301,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="#3CF1EBF1"
+                    android:background="#36000000"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="8dp">
@@ -309,6 +316,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sunset"
+                        android:textColor="@color/white"
                         android:textSize="12dp" />
 
                     <TextView
@@ -316,6 +324,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="6:45 PM"
+                        android:textColor="@color/white"
                         android:textSize="14dp" />
 
                 </LinearLayout>
@@ -331,6 +340,7 @@
 
     </RelativeLayout>
 
+
     <ProgressBar
         android:id="@+id/loader"
         android:layout_width="wrap_content"
@@ -338,12 +348,14 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
+
     <TextView
         android:id="@+id/errorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Something went wrong"
+        android:textColor="@color/white"
         android:textSize="20dp"
         android:visibility="gone" />
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:key="SETTINGS">
+
+        <ListPreference
+            android:defaultValue="1"
+            android:key="TEMPERATURE_UNIT"
+            android:title="Temperature"
+            android:entries="@array/items_name_temperature"
+            android:entryValues="@array/item_values_temperature"
+            android:summary="Celsius - °C"
+            />
+        <ListPreference
+            android:defaultValue="1"
+            android:key="PRESSURE_UNIT"
+            android:title="Pressure"
+            android:entries="@array/items_name_pressure"
+            android:entryValues="@array/item_values_pressure"
+            android:summary="Hectopascals - hPa"
+            />
+        <ListPreference
+            android:defaultValue="1"
+            android:key="WIND_UNIT"
+            android:title="Wind"
+            android:entries="@array/items_name_wind"
+            android:entryValues="@array/item_values_wind"
+            android:summary="Meters per second - m/s"
+            />
+        <Preference
+            android:key="ABOUT"
+            app:title="About"
+            >
+            <intent android:action=".AboutActivity"/>
+        </Preference>
+
+
+</PreferenceScreen>
