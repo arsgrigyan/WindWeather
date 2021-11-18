@@ -160,7 +160,6 @@ class MainActivity : AppCompatActivity() {
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
             findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
             findViewById<TextView>(R.id.errorMessage).visibility = View.GONE
-            findViewById<Toolbar>(R.id.toolbar).visibility = View.GONE
         }
 
         override fun doInBackground(vararg p0: String?): String? {
