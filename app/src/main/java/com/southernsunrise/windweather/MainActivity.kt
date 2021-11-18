@@ -160,6 +160,7 @@ class MainActivity : AppCompatActivity() {
             findViewById<ProgressBar>(R.id.loader).visibility = View.VISIBLE
             findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.GONE
             findViewById<TextView>(R.id.errorMessage).visibility = View.GONE
+            findViewById<Toolbar>(R.id.toolbar).visibility = View.GONE
         }
 
         override fun doInBackground(vararg p0: String?): String? {
@@ -254,13 +255,13 @@ class MainActivity : AppCompatActivity() {
                 // findViewById<ImageView>(R.id.app_icon).visibility = View.GONE
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<RelativeLayout>(R.id.mainContainer).visibility = View.VISIBLE
+                findViewById<Toolbar>(R.id.toolbar).visibility = View.VISIBLE
 
             } catch (e: Exception) {
                 findViewById<ProgressBar>(R.id.loader).visibility = View.GONE
                 findViewById<TextView>(R.id.errorMessage).visibility = View.VISIBLE
                 findViewById<TextView>(R.id.address).visibility = View.GONE
                 findViewById<TextView>(R.id.updated_at).visibility = View.GONE
-
             }
 
         }
