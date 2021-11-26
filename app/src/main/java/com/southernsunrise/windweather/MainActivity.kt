@@ -63,11 +63,17 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar?.title = null
+     
+        // change city name to the last saved city name
         val sharedPref: SharedPreferences = getSharedPreferences("CITY_NAME_SAVE", MODE_PRIVATE)
         val cityName = sharedPref.getString("CITY_NAME", CITY)
         if (cityName != null) {
             CITY = cityName
         }
+        
+        //getting default shared preferences to show descriptions in appropriate units
+        
+        // change temperature units' boolean variable depending on deafault shared preferences from settings
         val sharedPreference: SharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(this)
         val tempValue = sharedPreference.getString("TEMPERATURE_UNIT", "1")
@@ -81,6 +87,8 @@ class MainActivity : AppCompatActivity() {
                 TEMP_UNIT = "°F"
             }
         }
+        
+         // change wind speed units' boolean variable depending on deafault shared preferences from settings
         val windSpeed = sharedPreference.getString("WIND_UNIT", "1")
         when (windSpeed?.toInt()) {
             1 -> {
@@ -93,6 +101,8 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        
+         // change pressure units' boolean variable depending on deafault shared preferences from settings
         val pressureUnit = sharedPreference.getString("PRESSURE_UNIT", "1")
         when (pressureUnit?.toInt()) {
             1 -> {
@@ -126,7 +136,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             R.id.opt_share -> {
-                val sharedTemp =
+                val sharedDescriptions =
                     "   ${findViewById<TextView>(R.id.address).text.toString()}\n temperature - ${
                         findViewById<TextView>(
                             R.id.temperature
@@ -144,7 +154,7 @@ class MainActivity : AppCompatActivity() {
                     } "
                 val intent = Intent()
                 intent.action = Intent.ACTION_SEND
-                intent.putExtra(Intent.EXTRA_TEXT, sharedTemp)
+                intent.putExtra(Intent.EXTRA_TEXT, sharedDescriptions)
                 intent.type = "text/plain"
                 startActivity(Intent.createChooser(intent, "Share to:"))
             }
@@ -152,7 +162,7 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
+      // the class wich will request and get all the resources from API
     inner class weatherTask(var city: String = "Yerevan") : AsyncTask<String, Void, String>() {
         override fun onPreExecute() {
             super.onPreExecute()
@@ -202,6 +212,8 @@ class MainActivity : AppCompatActivity() {
                 val iconCode = weather.getString("icon")
                 val iconUrl = URL("http://openweathermap.org/img/w/$iconCode.png")
                 val imageView: ImageView = findViewById(R.id.weatherIcon)
+                
+                // change units according to boolean unit variables 
                 if (UNITS == "metric" && windWithMiles) {
                     windSpeed = wind.getDouble("speed") / 0.44704
                 } else if (UNITS == "metric" && windWithMeters) {
@@ -213,6 +225,7 @@ class MainActivity : AppCompatActivity() {
                 } else if (UNITS == "imperial" && windWithMiles) {
                     windSpeed = wind.getDouble("speed")
                 }
+                
                 pressure = when {
                     pressure_inHg -> {
                         (main.getDouble("pressure")) * 0.029529983071445
@@ -225,11 +238,12 @@ class MainActivity : AppCompatActivity() {
 
                 /* Picasso.get().load("https://openweathermap.org/img/w/$iconCode.png")
                      .into(imageView)*/
-                val id: Int =
+                  // using weather description icons from drawable folder depending on icon code from API   
+                val iconsId: Int =
                     getResources().getIdentifier("w$iconCode", "drawable", getPackageName());
-                val id2 = getResources().getIdentifier("b$iconCode", "drawable", getPackageName());
-                imageView.setImageResource(id)
-                findViewById<RelativeLayout>(R.id.main).setBackgroundResource(id2)
+                val backgroundsId = getResources().getIdentifier("b$iconCode", "drawable", getPackageName());
+                imageView.setImageResource(iconsId)
+                findViewById<RelativeLayout>(R.id.main).setBackgroundResource(backgroundsId)
 
                 findViewById<TextView>(R.id.address).text = address
                 findViewById<TextView>(R.id.updated_at).text = updatedAtText
