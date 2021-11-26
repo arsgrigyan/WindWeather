@@ -66,7 +66,8 @@ class SettingsActivity : AppCompatActivity() {
             preferenceScreen.sharedPreferences
                 .unregisterOnSharedPreferenceChangeListener(this)
         }
-
+        
+         // change preference summary to it's entry
         override fun onSharedPreferenceChanged(p0: SharedPreferences, key: String) {
             val pref: Preference? = findPreference(key)
             if (pref is ListPreference) {
