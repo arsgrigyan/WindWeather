@@ -46,6 +46,8 @@ class ListActivity() : AppCompatActivity() {
         supportActionBar?.title = "Add / Select the city"
         val listView = findViewById<ListView>(R.id.location_list)
         val locationNames = ArrayList<String>()
+        
+        // geting list items from saved shared prefernces
         val prefs = getSharedPreferences("PREFS", MODE_PRIVATE)
         val wholeCityNames = prefs.getString("city_names", "")
         val cityNames = wholeCityNames?.split(",")
@@ -56,15 +58,19 @@ class ListActivity() : AppCompatActivity() {
                 }
             }
         }
+        
+        // use hashSet to filter duplicated items and sort them
         val hashSet = HashSet<String>()
         hashSet.addAll(locationNames)
         locationNames.clear()
         locationNames.addAll(hashSet)
         locationNames.sort()
+        
         val adapter = ArrayAdapter<String>(
             this, android.R.layout.simple_list_item_1, locationNames
         )
         listView.adapter = adapter
+        
         val addButton = findViewById<FloatingActionButton>(R.id.fab_add)
         val editText: EditText = findViewById<EditText>(R.id.addCity_editText)
 
@@ -75,13 +81,15 @@ class ListActivity() : AppCompatActivity() {
                 editText.requestFocus()
             } else {
                 val text = editText.text.toString()
-                val intent = Intent(this, MainActivity::class.java)
+               // save city inserted city name in shared preferences
                 val sharedPref: SharedPreferences =
                     getSharedPreferences("CITY_NAME_SAVE", MODE_PRIVATE)
                 val sharedPrefEdit = sharedPref.edit()
                 MainActivity.CITY = text
                 sharedPrefEdit.putString("CITY_NAME", MainActivity.CITY)
                 sharedPrefEdit.apply()
+                
+                // add city name to the list
                 locationNames.add(text)
                 adapter.notifyDataSetChanged()
                 val stringBuilder = StringBuilder()
@@ -98,13 +106,14 @@ class ListActivity() : AppCompatActivity() {
 
                 Toast.makeText(
                     this,
-                    sharedPref.getString("CITY_NAME", "armavir, am"),
+                    sharedPref.getString("CITY_NAME", "Yerevan"),
                     Toast.LENGTH_SHORT
                 ).show()
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }
         }
-
+          // remove item from the list on long press
         listView.onItemLongClickListener = OnItemLongClickListener { arg0, arg1, pos, arg3 ->
             Toast.makeText(this, "removed", Toast.LENGTH_LONG).show()
             locationNames.removeAt(pos)
@@ -123,6 +132,8 @@ class ListActivity() : AppCompatActivity() {
 
             true
         }
+        
+        // save city name in shared prefernces and go back to main activity on item click
         listView.onItemClickListener =
             OnItemClickListener { parent, view, position, id ->
                 val text: String = listView.getItemAtPosition(position) as String
